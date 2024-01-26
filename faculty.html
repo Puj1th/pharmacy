@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <link rel="stylesheet" href="sam.css" /> -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -33,27 +34,33 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
-    <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-between">
-        <!-- <h1 class="logo me-auto"><a href="index.html">SVIPS</a></h1> -->
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html" class="logo me-auto"
+      <div
+        class="px-3 px-sm-5 mr-2"
+        style="display: flex; justify-content: center"
+      >
+        <a
+          href="index.html"
+          class="logo me-auto"
+          style="max-height: fit-content !important"
           ><img src="assets/img/headerLogo.png" alt="" class="img-fluid"
         /></a>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">NAAC</a></li>
-            <li><a href="#">IQAC</a></li>
-            <li><a href="#">vLogin</a></li>
+            <style>
+              .navbar a {
+                font-size: 1.25rem !important;
+              }
+            </style>
 
+            <li><a href="naac.html">NAAC</a></li>
+            <li><a href="https://sves.org.in/ecap_pharma/">vLogin</a></li>
             <li class="dropdown">
               <a href="#"
                 ><span>About Us</span> <i class="bi bi-chevron-down"></i
@@ -75,8 +82,8 @@
               ></a>
               <ul>
                 <li><a href="#">Admission Enquiry Form</a></li>
-                <li><a href="#">B Pharmacy</a></li>
-                <li><a href="#">M Pharmacy</a></li>
+                <li><a href="bpharmacy.html">B Pharmacy</a></li>
+                <li><a href="mpharmacy.html">M Pharmacy</a></li>
                 <li><a href="#">Advertisements & Notifications</a></li>
                 <li><a href="#">Application Form</a></li>
                 <li><a href="#">Intake Details</a></li>
@@ -90,7 +97,7 @@
                 <li><a href="#">Notifications</a></li>
               </ul>
             </li>
-            <li><a href="f">Faculty</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
             <li class="dropdown">
               <a href="#"
                 ><span>Training & Placements</span>
@@ -117,6 +124,7 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
+        <nav></nav>
         <!-- .navbar -->
       </div>
     </header>
@@ -136,18 +144,6 @@
       </div>
       <!-- End Breadcrumbs -->
 
-      <!-- <table class="table table-bordered">
-        <thead class="table-light">
-          <tr>
-            <th class="table-success" scope="col">Sno</th>
-            <th class="table-success" scope="col">Name of the faculty</th>
-            <th class="table-success" scope="col">Qualification</th>
-            <th class="table-success" scope="col">Designation</th>
-            <th class="table-success" scope="col">Profile</th>
-          </tr>
-        </thead>
-        
-      </table> -->
       <table
         class="container my-4 table-responsive table-bordered table-striped table-hover"
         border="1"
@@ -712,8 +708,6 @@
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
           <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
     </footer>
