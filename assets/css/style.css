@@ -57,7 +57,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #7ed899;
+  background: #cc7228;
   color: #fff;
 }
 
@@ -838,6 +838,7 @@ section {
   font-style: italic;
   display: block;
   font-size: 13px;
+  color: #f17814;
 }
 
 .trainers .member p {
@@ -1542,7 +1543,7 @@ section {
 }
 
 #footer .footer-newsletter form input[type=submit]:hover {
-  background: #3ac162;
+  background: #f17814;
 }
 
 #footer .credits {
@@ -1551,18 +1552,18 @@ section {
 }
 
 #footer .credits a {
-  color: #3ac162;
+  color: #f17814;
   transition: 0.3s;
 }
 
 #footer .credits a:hover {
-  color: #5fcf80;
+  color: #f17814;
 }
 
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #5fcf80;
+  background: #f17814;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1575,7 +1576,7 @@ section {
 }
 
 #footer .social-links a:hover {
-  background: #3ac162;
+  background: #e2863a;
   color: #fff;
   text-decoration: none;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <link rel="stylesheet" href="sam.css" /> -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
@@ -39,15 +40,27 @@
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
-      <div class="container d-flex align-items-between">
-        <!-- <h1 class="logo me-auto"><a href="index.html">SVIPS</a></h1> -->
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html" class="logo me-auto"><img src="assets/img/headerLogo.png" alt="" class="img-fluid"></a>
-        
+      <div
+        class="px-3 px-sm-5 mr-2"
+        style="display: flex; justify-content: center"
+      >
+        <a
+          href="index.html"
+          class="logo me-auto"
+          style="max-height: fit-content !important"
+          ><img src="assets/img/headerLogo.png" alt="" class="img-fluid"
+        /></a>
+
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
-            
-            
+            <style>
+              .navbar a {
+                font-size: 1.25rem !important;
+              }
+            </style>
+
+            <li><a href="naac.html">NAAC</a></li>
+            <li><a href="https://sves.org.in/ecap_pharma/">vLogin</a></li>
             <li class="dropdown">
               <a href="#"
                 ><span>About Us</span> <i class="bi bi-chevron-down"></i
@@ -70,7 +83,7 @@
               <ul>
                 <li><a href="#">Admission Enquiry Form</a></li>
                 <li><a href="bpharmacy.html">B Pharmacy</a></li>
-                <li><a href="#">M Pharmacy</a></li>
+                <li><a href="mpharmacy.html">M Pharmacy</a></li>
                 <li><a href="#">Advertisements & Notifications</a></li>
                 <li><a href="#">Application Form</a></li>
                 <li><a href="#">Intake Details</a></li>
@@ -84,7 +97,7 @@
                 <li><a href="#">Notifications</a></li>
               </ul>
             </li>
-            <li><a href="#">Faculty</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
             <li class="dropdown">
               <a href="#"
                 ><span>Training & Placements</span>
@@ -111,6 +124,7 @@
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
+        <nav></nav>
         <!-- .navbar -->
       </div>
     </header>
@@ -172,22 +186,23 @@
         </div>
       </section>
       <!-- End Counts Section -->
-      
 
       <!-- ======= Why Us Section ======= -->
       <section id="why-us" class="why-us">
-        <div class="container"> <!--  data-aos="fade-up" -->
+        <div class="container">
+          <!--  data-aos="fade-up" -->
           <div class="row">
             <div class="col-lg-4 d-flex align-items-stretch">
               <div class="content">
                 <h3>Why Choose SVIPS?</h3>
                 <p>
-                  Sri Vasavi Institute of Pharmaceutical Sciences aims to enhance the greatest abilities
-                  of the students and to fulfill their audacious goals through
-                  quality teaching and academic integrity. Our Institute
-                  inculcates professional and ethical skills in students to be
-                  well trained, highly proficient, enterprising and committed
-                  citizens to contribute their best for the society.
+                  Sri Vasavi Institute of Pharmaceutical Sciences aims to
+                  enhance the greatest abilities of the students and to fulfill
+                  their audacious goals through quality teaching and academic
+                  integrity. Our Institute inculcates professional and ethical
+                  skills in students to be well trained, highly proficient,
+                  enterprising and committed citizens to contribute their best
+                  for the society.
                 </p>
               </div>
             </div>
@@ -201,23 +216,28 @@
                   <div class="col-xl-4 d-flex align-items-stretch">
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-receipt"></i>
-                      <h4>Faculty</h4>
-                      <p>Excellent Faculty with years of experience</p>
+                      <h4>IQAC</h4>
+                      <p>To view more about Internal Quality Assurance Cell</p>
                       <p><a href="#">Click here</a></p>
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch">
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-cube-alt"></i>
-                      <h4>Exam Results</h4>
-                      <p>The following are the Exam Results.</p>
-                      <p><a href="#">Click here</a></p>
+                      <h4>Online Fee Payments</h4>
+                      <p>To pay your fee online</p>
+                      <p>
+                        <a
+                          href="https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx"
+                          >Click here</a
+                        >
+                      </p>
                     </div>
                   </div>
                   <div class="col-xl-4 d-flex align-items-stretch">
                     <div class="icon-box mt-4 mt-xl-0">
                       <i class="bx bx-images"></i>
-                      <h4>Category B seats</h4>
+                      <h4>Grievence</h4>
                       <p>This is the following Data</p>
                       <p><a href="#">Click here</a></p>
                     </div>
@@ -234,7 +254,8 @@
       <!-- ======= Trainers Section ======= -->
       <section id="trainers" class="trainers">
         <div class="container">
-          <div class="row"> <!--  data-aos="zoom-in" data-aos-delay="100"-->
+          <div class="row">
+            <!--  data-aos="zoom-in" data-aos-delay="100"-->
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
               <div class="member">
                 <img src="assets/img/chairman.jpg" class="img-fluid" alt="" />
@@ -290,7 +311,7 @@
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    
+
     <footer id="footer">
       <div class="footer-top">
         <div class="container">
@@ -308,8 +329,13 @@
           </div>
         </div>
       </div>
-      <div data-aos="fade-in">
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5276.957253752231!2d81.4913263998507!3d16.858051768933482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a364cc202a33935%3A0x60e82f6ef9543177!2sSri%20Vasavi%20Institute%20of%20Pharmaceutical%20Sciences!5e0!3m2!1sen!2sin!4v1706249115251!5m2!1sen!2sin" frameborder="0" allowfullscreen></iframe>
+      <div>
+        <iframe
+          style="border: 0; width: 100%; height: 350px"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5276.957253752231!2d81.4913263998507!3d16.858051768933482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a364cc202a33935%3A0x60e82f6ef9543177!2sSri%20Vasavi%20Institute%20of%20Pharmaceutical%20Sciences!5e0!3m2!1sen!2sin!4v1706249115251!5m2!1sen!2sin"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
       </div>
 
       <div class="container d-md-flex py-4">
