@@ -517,7 +517,8 @@ section {
 }
 
 .breadcrumbs {
-  margin-top: 73px;
+  margin-top: 100vh;
+  position: fixed ;
   text-align: center;
   background: #ffffff;
   padding: 30px 0;
