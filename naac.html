@@ -76,6 +76,470 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <style>
+      summary:before {
+  content: "\002B";
+  position: absolute;
+  top: 0.4rem;
+  /* Adjusted top position */
+  left: 0.5rem;
+  /* Adjusted left position */
+  transform: rotate(0);
+  transform-origin: center center;
+  transition: 0.25s transform ease;
+  font-size: 25px;
+  text-align: justify;
+}
+
+details {
+  margin: 10px 0;
+  font-size: 18px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  transition: all 1s ease-in-out;
+}
+
+summary {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  border-bottom: 1px solid #f17814;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f17814;
+  color: #fff;
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  transition: all 0.2s;
+  position: relative;
+  padding-left: 30px;
+  /* Add position relative */
+}
+
+summary::marker {
+  content: "";
+}
+
+/* Use ::after pseudo-element for the marker */
+summary::after {
+  padding: auto;
+  margin-top: 0;
+  /* Default plus symbol */
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+  /* Adjust the position to the right end */
+}
+
+summary:hover {
+  font-weight: 600;
+
+  opacity: 0.8;
+}
+
+details[open] {
+  border: 1px solid #f17814;
+  border: 1px solid #f17814;
+  border-radius: 5px;
+}
+
+details[open] > summary:before {
+  transform: rotate(45deg);
+}
+
+.team {
+  width: 100%;
+  align-items: center;
+}
+
+.team:hover {
+  transition: 0.3s;
+}
+
+.message {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  text-align: justify;
+  padding: 20px;
+}
+
+.message img {
+  height: calc(0.15 * 100vw);
+  width: calc(0.15 * 100vw);
+  margin: 0px 10px 10px 10px;
+}
+
+.message p {
+  width: 50vw;
+  padding: 10px;
+  margin: 10px;
+}
+
+.team-members {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.team-mate {
+  width: 30vw;
+  display: flex;
+  background-color: #fff;
+  margin: 10px;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+}
+
+.team-mate:hover {
+  border: 1px solid black;
+}
+
+.team-mate img {
+  height: 10vw;
+  width: 10vw;
+}
+
+.companies {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.photos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 95%;
+  background-color: #f17814;
+  display: inline;
+}
+
+.companies:hover {
+  transition: 0.3s;
+}
+
+.company-icons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.company-icon {
+  height: 10vw;
+  width: 10vw;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+}
+
+.statistics {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.student-words {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.student-words:hover {
+  transition: 0.3s;
+}
+
+.words {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.word {
+  width: 40vw;
+  display: flex;
+  box-shadow: 1px 0px 2px 0px black;
+  border-radius: 10px;
+  text-align: justify;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 20px;
+  margin: 10px;
+}
+
+.word img {
+  height: 15vw;
+  width: 15vw;
+  padding: 10px;
+}
+
+.word p {
+  width: 30vw;
+}
+
+@media screen and (max-width: 500px) {
+  .message {
+    flex-direction: column;
+  }
+
+  .message img {
+    height: calc(0.25 * 100vw);
+    width: calc(0.25 * 100vw);
+  }
+
+  .message p {
+    width: 90vw;
+  }
+
+  .team-mate {
+    width: 90vw;
+  }
+
+  .company-icon {
+    height: 15vw;
+    width: 15vw;
+  }
+
+  .word {
+    width: 80vw;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .word p {
+    width: 70vw;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .word img {
+    height: 35vw;
+    width: 35vw;
+  }
+}
+
+.untitled {
+  height: 100%;
+  width: 100%;
+  animation: rotateHue infinite 20s linear;
+  animation-delay: 0.625s;
+}
+
+@keyframes rotateHue {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  20% {
+    filter: hue-rotate(0deg);
+  }
+
+  25% {
+    filter: hue-rotate(0deg);
+  }
+
+  45% {
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    filter: hue-rotate(0deg);
+  }
+
+  70% {
+    filter: hue-rotate(0deg);
+  }
+
+  75% {
+    filter: hue-rotate(0deg);
+  }
+
+  95% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+.untitled__shutters {
+  height: 150vmax;
+  width: 150vmax;
+  left: calc(50% - 75vmax);
+  top: calc(50% - 75vmax);
+  pointer-events: none;
+  z-index: 2;
+  animation: rotateFrame 10s linear infinite;
+}
+
+@keyframes rotateFrame {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.untitled__shutters:before,
+.untitled__shutters:after {
+  content: "";
+
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+
+  pointer-events: auto;
+}
+
+.untitled__shutters:before {
+  bottom: 50%;
+  animation: openTop 5s infinite;
+}
+
+.untitled__shutters:after {
+  top: 50%;
+  animation: openBottom 5s infinite;
+}
+
+.untitled__slides {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* padding: 10px; */
+}
+
+.untitled__slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  animation: showHideSlide infinite 20s steps(1);
+}
+
+@keyframes showHideSlide {
+  0% {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  25% {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  100% {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.untitled__slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.untitled__slide:nth-child(1) .untitled__slideBg {
+  background-image: url(images/pic1.jpg);
+}
+
+.untitled__slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.untitled__slide:nth-child(2) .untitled__slideBg {
+  background-image: url(images/pic2.jpg);
+}
+
+.untitled__slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.untitled__slide:nth-child(3) .untitled__slideBg {
+  background-image: url(images/pic3.jpg);
+}
+
+.untitled__slide:nth-child(4) {
+  animation-delay: 15s;
+}
+
+.untitled__slide:nth-child(4) .untitled__slideBg {
+  background-image: url(images/pic4.jpg);
+}
+
+.untitled__slide:nth-child(5) {
+  animation-delay: 20s;
+}
+
+.untitled__slide:nth-child(5) .untitled__slideBg {
+  background-image: url(images/pic5.jpg);
+}
+
+.untitled__slideBg {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #f17814;
+  opacity: 1;
+  z-index: -1;
+  animation: bgInOut 5s infinite;
+}
+
+@keyframes bgInOut {
+  0% {
+    transform: rotate(-45deg) scale(1.1);
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  33% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  66% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  }
+
+  100% {
+    transform: rotate(45deg) scale(0.9);
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+    </style>
+    
   </head>
 
   <body>
@@ -969,108 +1433,244 @@
     </div>
 
     <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-      <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container">
-          <h2>NAAC</h2>
-        </div>
+      <div class="content-speech p-5 text-center" >
+        <p style="margin-top: 80px;margin-bottom:0px;" style="color: darkred" class="text-justify text-sm-center"><img style=" height: 120px;" src="./assets/img/naac.png" alt=""></p>
+      </div>
+    </div>
+
+    <div class="rest mx-4 pt-5">
+      <div class="team">
+        <details>
+			<summary>NAAC Certificates</summary>
+			<li
+			  style="
+				margin-left: 25px;
+				text-align: left;
+				list-style-type: none;
+				margin: 10px;
+			  "
+			>
+			  <a href="#" target="_blank" class="text-warning bold"><center>
+				<img class="img-fluid" src="./assets/img/n.jpg" alt=""></center></a>
+			</li>
+		  </details>
+      </div>
+      <div class="companies">
+        <details>
+          <summary>NAAC Cycle I Certificates</summary>
+          <li
+            style="
+              margin-left: 25px;
+              text-align: left;
+              list-style-type: none;
+              margin: 10px;
+            "
+          >
+            For NAAC Cycle I Certificates
+            <a href="#" target="_blank" class="text-warning bold">View</a>
+          </li>
+        </details>
       </div>
 
-      <!-- ======= Mission Section ======= -->
-      <section id="mission" class="about">
-        <center>
-          <div class="container">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link active"
-                  id="certificate-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#certificate-tab-pane"
-                  type="button"
-                  role="tab"
-                  aria-controls="certificate-tab-pane"
-                  aria-selected="true"
-                >
-                  <p>NAAC Certificates</p>
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link"
-                  id="profile-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#profile-tab-pane"
-                  type="button"
-                  role="tab"
-                  aria-controls="profile-tab-pane"
-                  aria-selected="false"
-                >
-                  Institute Annual Reports
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="nav-link"
-                  id="contact-tab"
-                  data-bs-toggle="tab"
-                  data-bs-target="#contact-tab-pane"
-                  type="button"
-                  role="tab"
-                  aria-controls="contact-tab-pane"
-                  aria-selected="false"
-                >
-                  IT Policy
-                </button>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div
-                class="tab-pane fade show active"
-                id="certificate-tab-pane"
-                role="tabpanel"
-                aria-labelledby="certificate-tab"
-                tabindex="0"
-              >
-                <br />
-                SVIPS has a NAAC grade of A <br />
-                To view the certificate
-                <a href="#">Click here</a>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="profile-tab-pane"
-                role="tabpanel"
-                aria-labelledby="profile-tab"
-                tabindex="0"
-              >
-                Annual Reports
-              </div>
-              <div
-                class="tab-pane fade"
-                id="contact-tab-pane"
-                role="tabpanel"
-                aria-labelledby="contact-tab"
-                tabindex="0"
-              >
-                IT Policy of ...
-              </div>
-              <div
-                class="tab-pane fade"
-                id="disabled-tab-pane"
-                role="tabpanel"
-                aria-labelledby="disabled-tab"
-                tabindex="0"
-              >
-                ...
-              </div>
-            </div>
-          </div>
-        </center>
-      </section>
-      <!-- End Mission Section -->
-    </main>
-    <!-- End #main -->
+      <details>
+        <summary>AQAR Reports</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          For IQAR Report
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+
+      <details>
+        <summary>Institute Annual Reports</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Institute Annual Reports
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+
+      <details>
+        <summary>Institutional Distinctiveness</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Institutional Distinctiveness
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>IQAC</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          IQAC Profile
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Stakeholder Feedback Form</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Stakeholder Feedback Form -
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>IT Policy</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          IT Policy -
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Extended Profile</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Extended Profile -
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-I</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-I
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-II</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-II
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-III</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-III
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-IV</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-IV
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-V</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-V
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-VII</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-VII
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+      <details>
+        <summary>Criterion-VI</summary>
+        <li
+          style="
+            margin-left: 25px;
+            text-align: left;
+            list-style-type: none;
+            margin: 10px;
+          "
+        >
+          Criterion-VI
+          <a href="#" target="_blank" class="text-warning bold">View</a>
+        </li>
+      </details>
+    </div>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
