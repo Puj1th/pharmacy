@@ -18,6 +18,282 @@
       href="assets/img/apple-touch-icon.png"
       type="image/x-icon"
     />
+    <!-- chatbot -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+@media screen and (max-width: 600px) {
+    #toggleChatButton {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    #chatContainer {
+        width: 100%;
+        height: 50%;
+        bottom: 0;
+        right: 0;
+    }
+
+    #chatBody {
+        height: calc(100% - 80px);
+    }
+
+    #userInput {
+        font-size: 12px;
+    }
+
+    #sendButton {
+        font-size: 12px;
+    }
+}
+#toggleChatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#chatContainer {
+    display: none;
+    position: fixed;
+    max-height: 350px;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    height: 400px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatHeader {
+    padding: 15px;
+    background-color: #3498db;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+#closeChatButton {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px;
+    border-radius: 80%;
+    height: 18px;
+    width: 18px;
+}
+
+#chatBody {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+}
+
+#userInput {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+#sendButton {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+}
+
+#avatars {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #3498db;
+    border-radius: 0 0 10px 10px;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.user-message {
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 10px 10px 10px 0;
+    padding: 10px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.bot-message {
+    background-color: #f5f5f5;
+    color: #000;
+    border-radius: 10px 10px 0 10px;
+    padding: 10px;
+    max-width: 70%;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.error-message {
+    background-color: #f44336;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#inputContainer {
+    display: flex;
+    margin-top: 10px;
+}
+    </style>
+    <script>
+      function sendUserInputToChatbot(userInput) {
+        $.ajax({
+          type: "POST",
+          url: "http://puj1th.pythonanywhere.com/api/chatbot",
+          contentType: "application/json",
+          data: JSON.stringify({ user_input: userInput }),
+          success: function (response) {
+            if (response && response.response) {
+              $("#chatBody").append(
+                '<div class="message-container"><div class="user-message">' +
+                  userInput +
+                  "</div></div>"
+              );
+
+              // Check if the response contains a URL
+              var urlRegex = /(https?:\/\/[^\s]+)/g;
+              var matches = response.response.match(urlRegex);
+
+              if (matches) {
+                var textWithoutUrl = response.response;
+                var urlText = "";
+
+                matches.forEach(function (url) {
+                  // Extract URL from the text and append it as a link with "Click here" text
+                  urlText +=
+                    '<div class="message-container"><div class="bot-message">' +
+                    '<a href="' +
+                    url +
+                    '" target="_blank">Click here</a>' +
+                    "</div></div>";
+
+                  // Remove the URL from the text
+                  textWithoutUrl = textWithoutUrl.replace(url, "");
+                });
+
+                // Append the remaining non-URL text
+                if (textWithoutUrl.trim() !== "") {
+                  $("#chatBody").append(
+                    '<div class="message-container"><div class="bot-message">' +
+                      textWithoutUrl +
+                      "</div></div>"
+                  );
+                }
+
+                // Append the URL as a link with "Click here" text
+                $("#chatBody").append(urlText);
+              } else {
+                // If no URL found, treat the entire response as non-URL text
+                $("#chatBody").append(
+                  '<div class="message-container"><div class="bot-message">' +
+                    response.response +
+                    "</div></div>"
+                );
+              }
+
+              // Scroll to the bottom of the chat body
+              $("#chatBody").scrollTop($("#chatBody")[0].scrollHeight);
+            } else {
+              // No valid response received from the server
+              displayErrorMessage("Sorry, the bot is a little busy right now.");
+            }
+          },
+          error: function (error) {
+            console.error("Error:", error);
+            // Server not reachable or other error
+            displayErrorMessage("Sorry, the bot is a little busy right now.");
+          },
+        });
+      }
+
+      function displayErrorMessage(message) {
+        $("#chatBody").append(
+          '<div class="message-container"><div class="error-message">' +
+            message +
+            "</div></div>"
+        );
+        // Scroll to the bottom of the chat body
+        $("#chatBody").scrollTop($("#chatBody")[0].scrollHeight);
+      }
+
+      $(document).ready(function () {
+        $("#toggleChatButton").click(function () {
+          $("#chatContainer").toggle();
+        });
+
+        $("#closeChatButton").click(function () {
+          $("#chatContainer").hide();
+        });
+
+        $("#sendButton").click(function () {
+          var userInput = $("#userInput").val();
+          sendUserInputToChatbot(userInput);
+          $("#userInput").val("");
+        });
+
+        // Handle "Enter" key press
+        $("#userInput").keypress(function (e) {
+          if (e.which === 13) {
+            // 13 is the key code for "Enter"
+            var userInput = $("#userInput").val();
+            sendUserInputToChatbot(userInput);
+            $("#userInput").val("");
+          }
+        });
+      });
+    </script>
+    
+    <!-- chatbot -->
+
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./index-copy.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1001,6 +1277,23 @@
 
    
   </main><!-- End #main -->
+  <div id="chatContainer">
+    <div id="chatHeader">
+      EduBot
+      <div id="closeChatButton">
+        <img
+          src="https://cdn2.iconfinder.com/data/icons/media-controls-5/100/close-512.png"
+          height="20"
+          alt=""
+        />
+      </div>
+    </div>
+    <div id="chatBody"></div>
+    <div id="inputContainer">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button id="sendButton">Send</button>
+    </div>
+  </div>
 
    <!-- ======= Footer ======= -->
    <footer id="footer">
