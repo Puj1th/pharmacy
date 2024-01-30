@@ -188,7 +188,7 @@
       function sendUserInputToChatbot(userInput) {
         $.ajax({
           type: "POST",
-          url: "http://puj1th.pythonanywhere.com/api/chatbot",
+          url: "https://puj1th.pythonanywhere.com/api/chatbot",
           contentType: "application/json",
           data: JSON.stringify({ user_input: userInput }),
           success: function (response) {
